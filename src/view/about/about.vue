@@ -1,7 +1,7 @@
 <template>
   <div class="container" v-if="!showDetail && !showHot">
     <div class="header">
-      <div class="title">欢迎使用企业员工招聘系统系统</div>
+      <div class="title">欢迎使用校园招聘系统系统</div>
     </div>
     <!-- 搜索框 -->
     <div class="box">
@@ -14,8 +14,8 @@
       <div class="search" v-if="keyword">
         <p class="search-tip">
           搜索“
-          <span class="search-keyword">{{ keyword }}</span>”, 找到
-          <span class="search-num">{{ totalNums }}</span> 条职位信息
+          <span class="search-keyword">{{ keyword }}</span
+          >”, 找到 <span class="search-num">{{ totalNums }}</span> 条职位信息
         </p>
         <button class="search-back" @click="backInit">返回全部职位</button>
       </div>
@@ -31,22 +31,45 @@
       <el-table-column fixed="right" label="操作">
         <template slot-scope="scope">
           <el-button @click.prevent="handleDetail(scope.row)" type="primary" plain size="mini">查看</el-button>
-          <el-button @click.prevent="handleDelivery(scope.row)" v-permission="{ permission: '投递简历' }" type="success"
-            plain size="mini">投递简历</el-button>
-          <el-button @click.prevent="handleCollect(scope.row)" v-permission="{ permission: '添加收藏' }" type="info" plain
-            size="mini">收藏职位</el-button>
+          <el-button
+            @click.prevent="handleDelivery(scope.row)"
+            v-permission="{ permission: '投递简历' }"
+            type="success"
+            plain
+            size="mini"
+            >投递简历</el-button
+          >
+          <el-button
+            @click.prevent="handleCollect(scope.row)"
+            v-permission="{ permission: '添加收藏' }"
+            type="info"
+            plain
+            size="mini"
+            >收藏职位</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
     <div class="pagination">
-      <el-pagination @current-change="handleCurrentChange" :background="true" :page-size="pageCount"
-        :current-page="currentPage" v-if="refreshPagination" layout="prev, pager, next, jumper" :total="totalNums">
+      <el-pagination
+        @current-change="handleCurrentChange"
+        :background="true"
+        :page-size="pageCount"
+        :current-page="currentPage"
+        v-if="refreshPagination"
+        layout="prev, pager, next, jumper"
+        :total="totalNums"
+      >
       </el-pagination>
     </div>
   </div>
   <!-- 职位详情 -->
-  <position-detail v-else-if="showDetail && !showHot" @detailClose="detailClose" :detailPositionID="detailPositionID"
-    :temp="1"></position-detail>
+  <position-detail
+    v-else-if="showDetail && !showHot"
+    @detailClose="detailClose"
+    :detailPositionID="detailPositionID"
+    :temp="1"
+  ></position-detail>
   <!-- 热招职位 -->
   <hot-position v-else @hotClose="hotClose"></hot-position>
 </template>
@@ -79,7 +102,7 @@ export default {
       searchKeyword: '', // 搜索时输入的关键字
       keyword: null, // 查询关键字,用于显示搜索提示
       form: {}, //投递简历时传入的列表数据
-      list: {} //收藏职位时传入的列表数据
+      list: {}, //收藏职位时传入的列表数据
     }
   },
   async created() {
@@ -113,7 +136,7 @@ export default {
       this.tableData = positions.items
       this.totalNums = positions.total
     },
-    // 通过查询关键字分页搜索职位列表 
+    // 通过查询关键字分页搜索职位列表
     async searchPositionList() {
       const page = this.currentPage - 1
       const count = this.pageCount
@@ -150,7 +173,7 @@ export default {
     handleHot() {
       this.showHot = true
     },
-    rowClick() { },
+    rowClick() {},
     detailClose() {
       this.showDetail = false
       this.getByState()
@@ -166,7 +189,7 @@ export default {
       const flag = await Application.getByPositionIdAndUserId(val.id, this.$store.getters.user.id)
       if (flag === false) {
         // 不能重复投递
-        this.$message.error("你已投递过该职位，不可重复投递")
+        this.$message.error('你已投递过该职位，不可重复投递')
       } else {
         // 获取当前登录求职者的用户id
         this.form.user_id = this.$store.getters.user.id
@@ -288,4 +311,3 @@ export default {
   }
 }
 </style>
-

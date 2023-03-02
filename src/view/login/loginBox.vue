@@ -1,12 +1,7 @@
 <template>
   <div>
     <!-- <div class="team-name hidden-sm-and-down"><img src="@/assets/image/login/team-name.png" alt="logo" /></div> -->
-    <el-drawer
-      title="企业员工招聘系统"
-      :visible.sync="show"
-      :direction="direction"
-      :before-close="handleClose"
-    >
+    <el-drawer title="校园招聘系统" :visible.sync="show" :direction="direction" :before-close="handleClose">
       <div>
         <!-- <div class="title" style="margin-left: 350px">
         <h1 title="Lin">企业员工招聘系统</h1>
@@ -18,12 +13,7 @@
           </div>
           <div class="form-item password">
             <span class="icon secret-icon"></span>
-            <input
-              type="password"
-              v-model="form.password"
-              autocomplete="off"
-              placeholder="请填写用户登录密码"
-            />
+            <input type="password" v-model="form.password" autocomplete="off" placeholder="请填写用户登录密码" />
           </div>
           <button class="submit-btn" type="submit">登录</button>
         </form>
@@ -33,21 +23,18 @@
 </template>
 
 <script>
-import {
-  mapActions,
-  mapMutations
-} from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import User from '@/lin/model/user'
 import Utils from '@/lin/util/util'
 
 export default {
   name: 'login',
   props: {
-    show: Boolean
+    show: Boolean,
   },
   data() {
     return {
-      direction: "rtl",
+      direction: 'rtl',
       loading: false, // 加载动画
       wait: 2000, // 2000ms之内不能重复发起请求
       throttleLogin: null, // 节流登录
@@ -70,20 +57,17 @@ export default {
     handleClose(done) {
       this.$confirm('确认关闭？')
         .then(_ => {
-          done();
+          done()
           this.form = {
             username: '',
             password: '',
           }
           this.show = false
         })
-        .catch(_ => { });
+        .catch(_ => {})
     },
     async login() {
-      const {
-        username,
-        password
-      } = this.form
+      const { username, password } = this.form
       try {
         this.loading = true
         await User.getToken(username, password)
@@ -119,5 +103,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

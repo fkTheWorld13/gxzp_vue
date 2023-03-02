@@ -1,7 +1,7 @@
 <template>
   <div class="container" v-if="!showDetail">
     <div class="header">
-      <div class="title">企业员工招聘系统系统——公司大全</div>
+      <div class="title">校园招聘系统系统——公司大全</div>
     </div>
     <!-- 搜索框 -->
     <div class="box">
@@ -13,8 +13,8 @@
       <div class="search" v-if="keyword">
         <p class="search-tip">
           搜索“
-          <span class="search-keyword">{{ keyword }}</span>”, 找到
-          <span class="search-num">{{ totalNums }}</span> 条公司信息
+          <span class="search-keyword">{{ keyword }}</span
+          >”, 找到 <span class="search-num">{{ totalNums }}</span> 条公司信息
         </p>
         <button class="search-back" @click="backInit">返回全部公司</button>
       </div>
@@ -24,7 +24,7 @@
       <el-table-column prop="name" label="公司名称" width="200"></el-table-column>
       <el-table-column prop="logo" label="公司logo" width="250">
         <template v-if="scope.row.logo" slot-scope="scope">
-          <el-image :src="scope.row.logo" :preview-src-list="imgSrcList" style="max-height: 50px; max-width: 100px;">
+          <el-image :src="scope.row.logo" :preview-src-list="imgSrcList" style="max-height: 50px; max-width: 100px">
           </el-image>
         </template>
       </el-table-column>
@@ -34,14 +34,27 @@
       <el-table-column fixed="right" label="操作">
         <template slot-scope="scope">
           <el-button @click.prevent="handleDetail(scope.row)" type="primary" plain size="mini">查看</el-button>
-          <el-button @click.prevent="handleFollow(scope.row)" v-permission="{ permission: '新增关注' }" type="success" plain
-            size="mini">关注公司</el-button>
+          <el-button
+            @click.prevent="handleFollow(scope.row)"
+            v-permission="{ permission: '新增关注' }"
+            type="success"
+            plain
+            size="mini"
+            >关注公司</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
     <div class="pagination">
-      <el-pagination @current-change="handleCurrentChange" :background="true" :page-size="pageCount"
-        :current-page="currentPage" v-if="refreshPagination" layout="prev, pager, next, jumper" :total="totalNums">
+      <el-pagination
+        @current-change="handleCurrentChange"
+        :background="true"
+        :page-size="pageCount"
+        :current-page="currentPage"
+        v-if="refreshPagination"
+        layout="prev, pager, next, jumper"
+        :total="totalNums"
+      >
       </el-pagination>
     </div>
   </div>
@@ -105,7 +118,7 @@ export default {
       this.tableData = companys.items
       this.totalNums = companys.total
     },
-    // 通过查询关键字分页搜索公司列表 
+    // 通过查询关键字分页搜索公司列表
     async searchCompanyList() {
       const page = this.currentPage - 1
       const count = this.pageCount
@@ -235,4 +248,3 @@ export default {
   }
 }
 </style>
-

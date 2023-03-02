@@ -3,14 +3,9 @@
     <!-- <div class="team-name hidden-sm-and-down"><img src="@/assets/image/login/team-name.png" alt="logo" /></div> -->
     <div class="form-box" v-loading="loading" element-loading-background="rgba(0, 0, 0, 0)">
       <div class="title" style="margin-left: 350px">
-        <h1 title="Lin">企业员工招聘系统</h1>
+        <h1 title="Lin">校园招聘系统</h1>
       </div>
-      <form
-        class="login-form"
-        autocomplete="off"
-        @submit.prevent="throttleLogin()"
-        style="margin-left: 400px"
-      >
+      <form class="login-form" autocomplete="off" @submit.prevent="throttleLogin()" style="margin-left: 400px">
         <div class="form-item nickname">
           <span class="icon account-icon"></span>
           <input type="text" v-model="form.username" autocomplete="off" placeholder="请填写用户名" />
@@ -86,7 +81,7 @@ export default {
   width: 100%;
   height: 100%;
   background-size: auto;
-  background: url("../../assets/image/login/test.png") center center no-repeat;
+  background: url('../../assets/image/login/test.png') center center no-repeat;
 
   .team-name {
     position: fixed;
@@ -140,13 +135,13 @@ export default {
       }
 
       .form-item.nickname {
-        background: url("../../assets/image/login/nickname.jpg") no-repeat;
+        background: url('../../assets/image/login/nickname.jpg') no-repeat;
         background-size: 100% auto;
         background-position: left bottom;
       }
 
       .form-item.password {
-        background: url("../../assets/image/login/password.jpg") no-repeat;
+        background: url('../../assets/image/login/password.jpg') no-repeat;
         background-size: 100% auto;
         background-position: left bottom;
       }
@@ -160,7 +155,7 @@ export default {
         box-sizing: border-box;
         padding: 0 10px;
         padding-left: 74px;
-        background: url("../../assets/image/login/login-btn.jpg") no-repeat;
+        background: url('../../assets/image/login/login-btn.jpg') no-repeat;
         background-size: 90% auto;
         background-position: center bottom;
         border: none;
