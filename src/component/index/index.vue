@@ -131,24 +131,26 @@
     </div>
 
     <!-- 头部 -->
-    <div id="headTop">
+    <div id="headTop" style="height: 3.5rem">
       <div class="contains">
         <ul class="left">
-          <!-- <i class="iconfont icon-mobilephone_fill"></i> -->
-          <li>
+          <!--           <i class="iconfont icon-mobilephone_fill"></i>-->
+          <li style="margin-top: 0.8rem">
             <span>校园招聘系统</span>
           </li>
         </ul>
-        <ul class="right2">
-          <li v-if="this.userstate">
-            <span>
-              <el-button type="primary" round @click="tobacked">进入后台</el-button>&nbsp;
-              <el-button type="danger" round @click="outLogin">注销</el-button>&nbsp;&nbsp;&nbsp;
-            </span>
-            <!--          <span style="font-size:22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ nickname }}，欢迎使用系统</span>-->
+        <ul class="right1">
+          <li v-if="this.userstate" style="margin-top: 0.7rem">
+            <span> <el-button type="primary" round @click="tobacked">进入后台</el-button>&nbsp; </span>
+            <!--            <span style="font-size:22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ nickname }}，欢迎使用系统</span>-->
           </li>
         </ul>
-        <ul class="right" v-if="this.userstate && isemplyee">
+        <ul class="right">
+          <span class="demo-type">
+            <el-avatar icon="el-icon-user-solid"></el-avatar>
+          </span>
+        </ul>
+        <!--        <ul class="right" v-if="this.userstate && isemplyee">
           <li style="font-size: 18px">
             <router-link to="/resume-create">我的简历&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
           </li>
@@ -158,8 +160,8 @@
           <li style="font-size: 18px">
             <router-link to="/collection">收藏夹&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
           </li>
-        </ul>
-        <ul class="right" v-if="this.userstate && ishr">
+        </ul>-->
+        <!--        <ul class="right" v-if="this.userstate && ishr">
           <li style="font-size: 18px">
             <router-link to="/company/modify">我的企业&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
           </li>
@@ -169,15 +171,15 @@
           <li style="font-size: 18px">
             <router-link to="/interview/manage">面试管理&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
           </li>
-        </ul>
-        <ul class="right" v-if="this.userstate && isadmin">
+        </ul>-->
+        <!--        <ul class="right" v-if="this.userstate && isadmin">
           <li style="font-size: 18px">
             <router-link to="/company/examine/wait">企业认证管理&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
           </li>
           <li style="font-size: 18px">
             <router-link to="/position/examine/wait">职位审核&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
           </li>
-        </ul>
+        </ul>-->
         <ul class="right1">
           <li style="font-size: 18px">
             <span v-if="!this.userstate">
@@ -462,8 +464,8 @@ export default {
 
 <style lang="scss">
 @import url('//at.alicdn.com/t/font_631781_uzwcwz6vcmcxr.css');
-$nx-color: #449efe;
-$nx-color2: #0470b8;
+$nx-color: #409eff;
+$nx-color2: #409eff;
 $all-padding: 0;
 $nx-width: 76.25rem;
 
