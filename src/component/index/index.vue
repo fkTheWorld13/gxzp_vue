@@ -134,21 +134,25 @@
     <div id="headTop" style="height: 3.5rem">
       <div class="contains">
         <ul class="left">
-          <!--           <i class="iconfont icon-mobilephone_fill"></i>-->
-          <li style="margin-top: 0.8rem">
-            <span>校园招聘系统</span>
-          </li>
-        </ul>
-        <ul class="right1">
-          <li v-if="this.userstate" style="margin-top: 0.7rem">
-            <span> <el-button type="primary" round @click="tobacked">进入后台</el-button>&nbsp; </span>
-            <!--            <span style="font-size:22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ nickname }}，欢迎使用系统</span>-->
+          <i class="iconfont icon-mobilephone_fill"></i>
+          <li style="margin-top: 1rem">
+            <marquee style="font-size: 23px; width: 90%; margin-right: 30%">校园招聘系统</marquee>
           </li>
         </ul>
         <ul class="right">
-          <span class="demo-type">
-            <el-avatar icon="el-icon-user-solid"></el-avatar>
-          </span>
+          <li v-if="this.userstate" style="margin-top: 0.7rem">
+            <el-button type="primary" style="padding: 11px 16px" round @click="tobacked">进入后台</el-button
+            >&nbsp;&nbsp;&nbsp;
+          </li>
+          <li v-if="this.userstate" style="margin-top: 0.6rem">
+            <el-dropdown style="width: 100%">
+              <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" cile=""></el-avatar>
+              <el-dropdown-menu style="margin-top: -5px">
+                <el-dropdown-item>修改密码</el-dropdown-item>
+                <el-dropdown-item @click.native="outLogin">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </li>
         </ul>
         <!--        <ul class="right" v-if="this.userstate && isemplyee">
           <li style="font-size: 18px">
@@ -180,11 +184,11 @@
             <router-link to="/position/examine/wait">职位审核&nbsp;&nbsp;&nbsp;&nbsp;</router-link>
           </li>
         </ul>-->
-        <ul class="right1">
-          <li style="font-size: 18px">
+        <ul class="right">
+          <li style="font-size: 18px; margin-top: 0.7rem">
             <span v-if="!this.userstate">
-              <el-button @click="showlogin = true" type="primary" round>登录</el-button>&nbsp;&nbsp;
-              <el-button @click="showregister = true" round>注册</el-button>
+              <el-button style="padding: 11px 16px" @click="showlogin = true" type="primary" round>登录</el-button>
+              <el-button style="padding: 11px 16px" @click="showregister = true" round>注册</el-button>
             </span>
           </li>
         </ul>
@@ -505,10 +509,9 @@ $nx-width: 76.25rem;
 }
 
 .right {
-  margin-top: 7px;
+  margin-top: -3px;
   cursor: pointer;
   float: right;
-  padding-right: $all-padding;
 }
 
 .right1 {
@@ -533,9 +536,9 @@ $nx-width: 76.25rem;
 
       .iconfont {
         float: left;
-        line-height: 2rem;
-        font-size: 1.3rem;
-        color: $nx-color2;
+        line-height: 3.3rem;
+        font-size: 3.3rem;
+        color: #409f00;
       }
 
       li {
